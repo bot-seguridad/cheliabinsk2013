@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070b13">
+  <meta name="description" content="Una presentación escolar interactiva sobre el meteorito de Cheliábinsk, Rusia, 15 de febrero de 2013.">
+  <meta property="og:title" content="Cheliábinsk — El día que el cielo explotó">
+  <meta property="og:description" content="Descubrí la historia del meteorito que iluminó Rusia en 2013.">
+  <title>CHELIÁBINSK — El día que el cielo explotó</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+    :root{--bg:#080c14;--bg2:#0d1320;--panel:#121b2a;--panel2:#172334;--white:#f9f8f4;--text:#ccd1dc;--muted:#8c98ae;--orange:#ffb66e;--orange2:#f67e52;--blue:#82acff;--line:#273449;--radius:20px;--max:1216px;--ease:cubic-bezier(.22,1,.36,1)}
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:85px}
+    body{margin:0;color:var(--white);background:var(--bg);font-family:'DM Sans',system-ui,-apple-system,sans-serif;overflow-x:hidden}
+    body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.25;background-image:radial-gradient(1px 1px at 13% 17%,#c2d9ff 99%,transparent),radial-gradient(1px 1px at 76% 9%,#fff 99%,transparent),radial-gradient(1px 1px at 56% 62%,#8fb5ea 99%,transparent),radial-gradient(1px 1px at 92% 82%,#fff 99%,transparent);background-size:317px 281px,459px 347px,623px 421px,277px 383px}
+    ::selection{background:var(--orange);color:#10131c}
+    a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.4;cursor:not-allowed}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+    .container{width:min(var(--max),calc(100% - 88px));margin-inline:auto}
+    .display{font-family:'Space Grotesk','DM Sans',sans-serif;letter-spacing:-.06em;font-weight:700}
+    .eyebrow{display:flex;align-items:center;gap:13px;text-transform:uppercase;letter-spacing:.17em;font-size:11px;color:var(--orange);font-weight:800}
+    .eyebrow::before{content:'';width:27px;height:1px;background:currentColor}
+    .muted{color:var(--muted)}.accent{color:var(--orange)}.blue{color:var(--blue)}
+    .section-title{font-size:clamp(40px,5vw,69px);line-height:1.02;margin:17px 0 24px;max-width:950px}
+    .lead{font-size:clamp(17px,1.75vw,21px);line-height:1.72;color:var(--text);max-width:650px}
+    .small-copy{font-size:15px;line-height:1.8;color:var(--muted)}
+    .divider{border:0;border-top:1px solid var(--line)}
+    #progress-track{height:3px;position:fixed;inset:0 0 auto;z-index:101;background:transparent;pointer-events:none}
+    #progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--orange2),var(--orange));box-shadow:0 0 17px #f8a66a9e;transition:width .15s ease}
+    .nav{height:77px;position:fixed;inset:0 0 auto;z-index:100;background:rgba(7,11,19,.83);border-bottom:1px solid rgba(125,156,200,.12);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+    .nav-inner{max-width:1390px;width:calc(100% - 72px);height:100%;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:25px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.055em;font-size:13px;white-space:nowrap}
+    .brand-icon{height:37px;width:37px;border:1px solid #d9936473;border-radius:10px;display:grid;place-items:center;color:var(--orange);background:#ef965a19;font-size:20px}
+    .nav-links{display:flex;align-items:center;gap:30px}.nav-links a{font-size:12px;color:#b5bece;font-weight:700;transition:color .2s}.nav-links a:hover,.nav-links a.active{color:var(--orange)}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .btn{border:1px solid #72819855;border-radius:100px;color:var(--white);background:transparent;font-size:13px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 21px;transition:transform .2s,background .2s,border-color .2s;white-space:nowrap}
+    .btn:hover{transform:translateY(-2px);border-color:var(--orange)}.btn-primary{background:var(--orange);border-color:var(--orange);color:#15131a;box-shadow:0 12px 35px #e7865830}.btn-primary:hover{background:#ffd19f}.btn-small{padding:11px 17px;font-size:12px}.btn-ghost{color:var(--muted);border-color:#43516a77}
+    .arrow{font-family:Arial,sans-serif;font-size:17px}
+    .hero{min-height:100svh;display:flex;align-items:center;position:relative;padding:150px 0 86px;background:radial-gradient(ellipse 52% 50% at 70% 42%,#15284855 0%,transparent 74%),linear-gradient(180deg,#0c1220 0%,#080c14 100%);overflow:hidden}
+    .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#7a81922b,transparent)}
+    .hero-grid{display:grid;grid-template-columns:1fr 1.04fr;gap:4%;align-items:center;position:relative;z-index:1}
+    .hero-topline{display:flex;align-items:center;gap:16px;color:#adb9ca;font-size:11px;letter-spacing:.18em;font-weight:800;text-transform:uppercase;margin-bottom:24px}
+    .live-dot{height:8px;width:8px;background:#ffb66e;border-radius:50%;box-shadow:0 0 0 5px #f5ac6c19,0 0 20px #f9a365ba}
+    .hero h1{font-size:clamp(67px,9vw,138px);font-weight:700;letter-spacing:-.097em;line-height:.87;margin:0 0 26px;font-family:'Space Grotesk',sans-serif}
+    .hero h1 span{display:block}.hero h1 span:last-child{font-size:clamp(58px,7.7vw,112px);margin-top:11px;color:var(--orange)}
+    .hero-subtitle{font-size:clamp(20px,2.5vw,30px);line-height:1.25;letter-spacing:-.035em;font-weight:600;margin:0 0 22px;color:var(--white);max-width:490px}
+    .hero-copy{max-width:450px;font-size:16px;color:#aeb8c8;line-height:1.85;margin:0 0 30px}
+    .hero-buttons{display:flex;flex-wrap:wrap;gap:13px}
+    .hero-meta{display:flex;flex-wrap:wrap;align-items:center;gap:18px;color:#8494a8;letter-spacing:.07em;margin-top:52px;font-size:11px;font-weight:700;text-transform:uppercase}
+    .hero-meta span+span::before{content:'✦';margin-right:18px;color:#dd9368}
+    .hero-visual{height:590px;position:relative;display:flex;align-items:center;justify-content:center;min-width:0}
+    .orbital-ring{position:absolute;width:105%;aspect-ratio:1/1;border:1px solid #7596cf23;border-radius:50%;transform:rotate(-28deg) scaleY(.78)}
+    .orbital-ring:nth-child(2){width:78%;border-style:dashed;border-color:#7a9be72b;transform:rotate(-28deg) scaleY(.78)}
+    .hero-photo-wrap{height:78%;width:97%;position:relative;transform:rotate(-4deg);box-shadow:0 0 0 1px #ffffff29,0 25px 100px #0009,0 0 95px #5676b91c;border-radius:7px;overflow:hidden;background:radial-gradient(circle at 65% 48%,#e7a46b66,#18253e 45%,#0a111c 100%)}
+    .hero-photo-wrap img{width:100%;height:100%;display:block;object-fit:cover;object-position:50% center;filter:saturate(.95) contrast(1.08)}
+    .hero-photo-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,#070b13d9 100%),linear-gradient(90deg,#080b143c,transparent 55%)}
+    .photo-caption{position:absolute;z-index:2;bottom:21px;left:27px;font-size:10px;text-transform:uppercase;letter-spacing:.16em;color:#f1f2ef;display:flex;gap:11px;align-items:center;font-weight:800}
+    .photo-caption::before{content:'';height:6px;width:6px;border-radius:50%;background:var(--orange)}
+    .floating-chip{position:absolute;z-index:3;padding:17px 20px;border:1px solid #e9d1b44b;background:#141e2be8;backdrop-filter:blur(18px);border-radius:13px;box-shadow:0 17px 40px #0006;transform:rotate(2deg)}
+    .floating-chip strong{font-family:'Space Grotesk';font-size:28px;letter-spacing:-.06em;display:block;color:#fff}.floating-chip span{font-size:10px;text-transform:uppercase;color:#aab5c4;letter-spacing:.13em;font-weight:800}
+    .chip-a{top:36px;right:-2px}.chip-b{bottom:26px;left:-10px;transform:rotate(-3deg)}
+    .scroll-cue{position:absolute;bottom:35px;left:50%;transform:translateX(-50%);font-size:10px;text-transform:uppercase;letter-spacing:.23em;color:#778498;display:flex;align-items:center;gap:14px}.scroll-cue::before{content:'';height:30px;width:1px;background:var(--orange)}
+    .section{padding:120px 0;position:relative;overflow:hidden}.section-alt{background:#0d1421}.section-alt::after{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 42% 40% at 92% 5%,#30426020,transparent 80%)}
+    .content-grid{display:grid;grid-template-columns:1fr 1fr;gap:7%;align-items:center}
+    .photo-panel{position:relative;overflow:hidden;border:1px solid #ffffff22;background:#142239;min-height:430px;border-radius:5px}.photo-panel img{position:absolute;width:100%;height:100%;object-fit:cover;object-position:center}.photo-panel::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,#08101ce6,transparent 44%)}.photo-panel p{position:absolute;bottom:22px;left:22px;right:22px;z-index:1;font-size:12px;color:#e9ecf4;line-height:1.6;margin:0}
+    .fact-inline{margin-top:30px;display:flex;flex-direction:column;gap:17px}.fact-inline>div{border-top:1px solid var(--line);padding-top:17px;display:flex;gap:18px}.number-marker{font-size:12px;color:var(--orange);font-weight:800;margin-top:4px;letter-spacing:.1em}.fact-inline strong{font-size:16px}.fact-inline p{margin:7px 0 0;color:var(--muted);font-size:14px;line-height:1.7}
+    .stats-grid{margin-top:64px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.stat{padding:34px 26px 28px;border:1px solid #314056c4;background:linear-gradient(155deg,#182334bb,#111a29 100%);border-radius:12px;min-width:0}.stat-icon{font-size:22px;color:var(--orange);margin-bottom:35px;display:block}.stat-number{font-family:'Space Grotesk';font-size:clamp(33px,3.4vw,55px);letter-spacing:-.085em;font-weight:700;line-height:1}.stat-label{font-size:14px;font-weight:800;color:#d5dce6;margin-top:13px}.stat-note{color:#8393a9;font-size:12px;margin-top:10px;line-height:1.6}
+    .note-bar{display:flex;align-items:flex-start;gap:14px;margin-top:24px;color:#aeb9c9;font-size:13px;line-height:1.7;border-left:2px solid var(--orange);padding-left:17px}.note-bar strong{color:var(--white)}
+    .timeline-grid{display:grid;grid-template-columns:1fr .9fr;gap:9%;align-items:center;margin-top:56px}.timeline{position:relative;padding-left:43px}.timeline::before{content:'';position:absolute;left:9px;top:12px;bottom:18px;width:1px;background:linear-gradient(var(--orange),#546883 60%,#273449)}.timeline-item{position:relative;margin-bottom:38px}.timeline-item:last-child{margin-bottom:0}.timeline-item::before{content:'';position:absolute;left:-40px;top:6px;height:13px;width:13px;border:3px solid var(--orange);background:#101723;border-radius:50%;box-shadow:0 0 0 6px #ffb66e13}.timeline-time{font-size:12px;color:var(--orange);letter-spacing:.13em;text-transform:uppercase;font-weight:800}.timeline-item h3{font-family:'Space Grotesk';font-size:23px;letter-spacing:-.04em;margin:9px 0}.timeline-item p{font-size:15px;color:#9eacbd;line-height:1.8;max-width:470px;margin:0}
+    .simulation{min-height:520px;border-radius:12px;border:1px solid #31405a;background:radial-gradient(ellipse 120% 85% at 50% 88%,#1c44759e 0%,#0e1829 44%,#070d18 90%);position:relative;overflow:hidden;isolation:isolate}
+    .simulation::before{content:'';position:absolute;inset:0;opacity:.5;background-image:radial-gradient(#e8eefc 1px,transparent 1px);background-size:54px 59px;mask-image:linear-gradient(180deg,#000,transparent 75%)}
+    .sim-label{position:absolute;top:25px;left:25px;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:#cad7ed;font-weight:800;z-index:3}.sim-legend{position:absolute;bottom:23px;left:25px;right:25px;display:flex;justify-content:space-between;align-items:center;color:#b7c9e4;font-size:11px;letter-spacing:.08em;z-index:3}
+    .planet{position:absolute;width:122%;aspect-ratio:1;left:-11%;bottom:-98%;border-radius:50%;background:radial-gradient(ellipse 35% 38% at 30% 20%,#65a6b344 3%,transparent 80%),radial-gradient(ellipse 65% 65% at 30% 12%,#307bb1,#153e73 42%,#0b1c43 70%,#061024 86%);box-shadow:0 -10px 43px #4aaff45b,0 -25px 60px #96caff17;transform:rotate(-15deg)}
+    .planet::after{content:'';position:absolute;inset:0;border-radius:50%;box-shadow:inset 0 5px 6px #e9f5ff82;transform:scale(.997)}
+    .path-line{position:absolute;left:19%;top:23%;width:69%;height:1px;transform:rotate(-36deg);background:linear-gradient(90deg,transparent,#ffab5b28 18%,#ffc987e6 94%,#fff9ca);filter:drop-shadow(0 0 8px #faae6f)}
+    .meteor-sim{height:19px;width:19px;position:absolute;top:25%;left:76%;border-radius:50%;background:#fff3c1;box-shadow:0 0 12px 6px #fff3bb,0 0 35px 16px #ff8a44,0 0 70px 25px #fb8e6438;z-index:2;animation:meteor-pulse 3s ease-in-out infinite}
+    .meteor-sim::before{content:'';position:absolute;right:10px;top:7px;height:5px;width:220px;transform:rotate(-.5deg);transform-origin:right;background:linear-gradient(90deg,transparent,#df6147 40%,#ffc18b 90%);filter:blur(3px)}
+    .altitude-line{position:absolute;right:14%;top:33%;height:52%;border-left:1px dashed #adcfff71;z-index:2}.altitude-line span{font-size:11px;white-space:nowrap;position:absolute;top:48%;left:12px;color:#cadcfc}
+    .wave{position:absolute;top:28%;left:77%;height:80px;width:80px;border-radius:50%;border:1px solid #fdc7886a;transform:translate(-40%,-40%);animation:wave 3s ease-out infinite;z-index:1}.wave.two{animation-delay:1.25s}.wave.three{animation-delay:2.5s}
+    @keyframes wave{0%{transform:translate(-40%,-40%) scale(.2);opacity:1}100%{transform:translate(-40%,-40%) scale(5);opacity:0}}@keyframes meteor-pulse{50%{box-shadow:0 0 19px 10px #fff4c5,0 0 40px 20px #ff8a44,0 0 80px 30px #fb8e6438}}
+    .impact-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:24px;margin-top:53px}.impact-highlight{padding:48px;border:1px solid #f5b0756e;border-radius:13px;background:radial-gradient(ellipse at 100% 0%,#ffb46d18,transparent 60%),linear-gradient(135deg,#252332,#151c2a);display:flex;flex-direction:column;justify-content:space-between;min-height:330px}.impact-highlight .big{font-family:'Space Grotesk';font-size:clamp(75px,11vw,148px);font-weight:700;letter-spacing:-.11em;color:var(--orange);line-height:1}.impact-highlight h3{font-family:'Space Grotesk';font-size:27px;letter-spacing:-.05em;margin:18px 0 8px}.impact-highlight p{margin:0;font-size:15px;color:#adb5c8;line-height:1.7;max-width:440px}.impact-side{display:grid;grid-template-rows:1fr 1fr;gap:24px}.impact-card{border:1px solid var(--line);border-radius:13px;padding:30px;background:#141e2d}.impact-card strong{font-family:'Space Grotesk';font-size:23px;letter-spacing:-.04em}.impact-card p{font-size:14px;color:#98a8bd;line-height:1.7;margin-bottom:0}.impact-card .symbol{font-size:25px;margin-bottom:24px;color:var(--blue);display:block}
+    .distinction{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.term-card{border:1px solid var(--line);border-radius:12px;padding:27px;background:#121e2c;transition:border-color .2s,transform .2s}.term-card.active{border-color:var(--orange);background:#1d2632}.term-card h3{font-family:'Space Grotesk';font-size:22px;margin:18px 0 11px}.term-card p{line-height:1.65;color:#a8b5c7;margin:0;font-size:14px}.term-card .term-symbol{font-size:29px;color:var(--orange)}
+    .science-layout{display:grid;grid-template-columns:1fr 1fr;gap:7%;align-items:center}.insight{border-left:2px solid var(--orange);padding-left:23px;margin-top:28px;font-size:15px;color:#bdc8d6;line-height:1.8}.insight strong{color:white}
+    .quiz-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px}.score-pill{border:1px solid #f6b67c56;background:#f3a76813;border-radius:100px;padding:11px 16px;color:var(--orange);font-size:12px;font-weight:800;white-space:nowrap}.quiz-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:19px;margin-top:43px}.quiz-card{padding:31px 28px;border-radius:13px;background:#151e2d;border:1px solid #304057}.quiz-counter{font-size:11px;font-weight:800;letter-spacing:.15em;color:var(--orange)}.quiz-card h3{font-size:20px;font-family:'Space Grotesk';letter-spacing:-.04em;line-height:1.4;min-height:82px;margin:16px 0 25px}.answers{display:grid;gap:9px}.answer{min-height:44px;text-align:left;color:#c3cee0;border:1px solid #3b4a61;background:#101a29;border-radius:8px;padding:11px 13px;font-size:13px;transition:border-color .15s,background .15s}.answer:not([disabled]):hover{border-color:var(--orange);background:#222734}.answer.correct{background:#1d443e;border-color:#66d7b3;color:#d4ffef}.answer.wrong{background:#472d38;border-color:#f08d86;color:#ffe6e3}.feedback{margin:17px 0 0;color:#b2c0d2;font-size:13px;min-height:45px;line-height:1.55}.feedback.success{color:#95e6c9}.feedback.fail{color:#f3b3a9}.quiz-actions{margin-top:26px;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.quiz-result{color:#c9d6e4;font-size:15px}
+    .sources-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:49px}.source-link{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;border:1px solid #344055;border-radius:11px;background:#131d2b;padding:22px 25px;transition:transform .2s,border-color .2s}.source-link:hover{border-color:var(--orange);transform:translateY(-3px)}.source-link .source-org{color:var(--orange);font-size:11px;letter-spacing:.13em;font-weight:800}.source-link strong{display:block;margin:9px 0;font-family:'Space Grotesk';font-size:18px;line-height:1.32}.source-link p{font-size:12px;color:#8191a7;margin:0}.source-link .outbound{color:var(--orange);font-size:20px}
+    .license{border-top:1px solid var(--line);padding-top:24px;color:#8794a7;font-size:12px;line-height:1.9;margin-top:45px}.license a{text-decoration:underline;text-decoration-color:#899bb044}.license a:hover{color:var(--orange)}
+    .footer{padding:37px 0;border-top:1px solid var(--line);background:#070b13}.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;color:#8b99a9;font-size:12px}.footer strong{color:#f3b77d}.footer-last{display:flex;align-items:center;gap:23px}
+    .presentation-controls{display:none;position:fixed;z-index:200;bottom:22px;left:50%;transform:translateX(-50%);background:#111b29ed;box-shadow:0 10px 80px #000b;border:1px solid #56627892;border-radius:100px;padding:8px;align-items:center;gap:8px;backdrop-filter:blur(20px)}
+    .slide-index{padding:0 12px;font-size:12px;font-weight:800;color:#c5cdd9;white-space:nowrap;min-width:70px;text-align:center}.control-btn{height:37px;min-width:38px;border-radius:50%;background:#283449;border:0;color:#fff;font-size:19px}.control-btn:hover:not(:disabled){background:var(--orange);color:#131622}.control-exit{border-radius:100px;padding:9px 14px;border:1px solid #4c5872;color:#d7dce6;background:transparent;font-size:12px;font-weight:700}
+    body.presenting{overflow:hidden}body.presenting .nav,body.presenting .footer,body.presenting .scroll-cue,body.presenting .top-btn{display:none!important}body.presenting .presentation-controls{display:flex}body.presenting .slide{display:none!important}body.presenting .slide.is-current{display:flex!important;align-items:center;min-height:100svh;height:100svh;overflow-y:auto;overflow-x:hidden;justify-content:flex-start;flex-direction:column;padding:80px 0 115px;scrollbar-width:thin}body.presenting .slide.is-current>.container{margin:auto}body.presenting .slide.is-current.hero{justify-content:center}body.presenting .hero-visual{height:500px}body.presenting .section-title{font-size:clamp(35px,4.4vw,62px)}body.presenting .stat{padding-top:20px;padding-bottom:20px}body.presenting .stat-icon{margin-bottom:15px}body.presenting .timeline-item{margin-bottom:20px}body.presenting .simulation{min-height:430px}body.presenting .photo-panel{min-height:360px}body.presenting .section{overflow-x:hidden}
+    .top-btn{position:fixed;z-index:95;bottom:30px;right:28px;height:45px;width:45px;border-radius:50%;border:1px solid #65748c75;background:#152336;color:white;font-size:19px;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .3s,transform .3s}.top-btn.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
+    dialog{background:#111a28;color:white;border:1px solid #5c7189;border-radius:20px;padding:0;width:min(470px,calc(100vw - 32px));box-shadow:0 40px 120px #000b}dialog::backdrop{background:#02050ccd;backdrop-filter:blur(8px)}.dialog-content{padding:35px}.dialog-content h2{font:700 29px 'Space Grotesk';letter-spacing:-.06em;margin:0 0 12px}.dialog-content p{font-size:13px;line-height:1.6;color:#a8b6c9;margin-bottom:25px}.dialog-content label{display:block;margin-bottom:16px;font-size:12px;font-weight:800;color:#cad3e1}.dialog-content input{display:block;width:100%;margin-top:8px;padding:13px;color:white;background:#0a111e;border:1px solid #3b4e68;border-radius:10px}.dialog-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:25px}
+    .reveal{transition:opacity .8s var(--ease),transform .8s var(--ease)}.has-js .reveal:not(.visible){opacity:0;transform:translateY(25px)}
+    @media(min-width:1600px){.hero-visual{height:660px}}
+    @media(max-width:1090px){.nav-links{gap:15px}.hero-grid{grid-template-columns:1.05fr .95fr}.hero-visual{height:490px}.chip-a{right:-8px}.chip-b{left:-8px}.stats-grid{grid-template-columns:repeat(2,1fr)}.quiz-grid{grid-template-columns:1fr 1fr}.quiz-card h3{min-height:auto}}
+    @media(max-width:820px){.container{width:min(100% - 40px,var(--max))}.nav-inner{width:calc(100% - 40px)}.nav-links{display:none}.nav-actions .edit-btn{display:none}.hero{padding:125px 0 75px}.hero-grid{grid-template-columns:1fr;gap:45px}.hero h1{font-size:clamp(60px,11vw,102px)}.hero h1 span:last-child{font-size:clamp(57px,10vw,90px)}.hero-visual{height:415px;max-width:600px;width:100%;margin:auto}.hero-photo-wrap{height:80%}.floating-chip{padding:13px}.chip-a{top:11px}.chip-b{bottom:5px}.content-grid,.science-layout{grid-template-columns:1fr;gap:45px}.timeline-grid{grid-template-columns:1fr;gap:50px}.simulation{max-width:600px;width:100%;margin:auto}.impact-grid{grid-template-columns:1fr}.impact-highlight{min-height:270px}.impact-side{grid-template-columns:1fr 1fr;grid-template-rows:auto}.distinction{grid-template-columns:1fr}.sources-grid{grid-template-columns:1fr}.section{padding:90px 0}body.presenting .slide.is-current{padding:75px 0 112px}body.presenting .hero-visual{height:350px}}
+    @media(max-width:570px){.hero h1{font-size:clamp(51px,13.5vw,74px)}.hero h1 span:last-child{font-size:clamp(52px,12.1vw,71px)}.hero-meta{gap:9px;font-size:9px}.hero-meta span+span::before{margin-right:9px}.brand{font-size:11px}.nav-inner{gap:7px}.brand-icon{height:31px;width:31px;font-size:17px}.nav-actions .btn-small{padding:10px 12px;font-size:11px}.hero-subtitle{font-size:23px}.hero-visual{height:330px}.photo-caption{font-size:9px;bottom:13px;left:17px}.floating-chip strong{font-size:19px}.floating-chip span{font-size:8px}.chip-a{right:0}.chip-b{left:0}.section-title{font-size:clamp(38px,10vw,58px)}.lead{font-size:16px}.stats-grid{gap:9px}.stat{padding:23px 17px}.stat-number{font-size:clamp(31px,8vw,44px)}.stat-note{font-size:11px}.stat-icon{margin-bottom:26px}.impact-highlight{padding:30px}.impact-side{grid-template-columns:1fr}.quiz-grid{grid-template-columns:1fr}.quiz-head{display:block}.score-pill{display:inline-block;margin-top:14px}.photo-panel{min-height:320px}.simulation{min-height:380px}.planet{bottom:-104%}.footer-inner{flex-direction:column;align-items:flex-start}.footer-last{justify-content:space-between;width:100%}body.presenting .hero-visual{height:265px}body.presenting .slide.is-current{padding:70px 0 107px}body.presenting .stats-grid{grid-template-columns:1fr 1fr}body.presenting .stat{padding:15px}body.presenting .stat-icon{margin-bottom:9px}body.presenting .impact-side{display:none}body.presenting .quiz-grid{gap:8px}body.presenting .quiz-card{padding:16px}body.presenting .quiz-card h3{font-size:17px;margin:7px 0 13px}body.presenting .quiz-head .section-title{margin-bottom:8px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <div id="progress-track"><div id="progress-bar"></div></div>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio"><span class="brand-icon">✦</span> ARCHIVO <span class="accent">CÓSMICO.</span></a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#historia">La historia</a><a href="#cifras">Los números</a><a href="#cronologia">Cronología</a><a href="#ciencia">Ciencia</a><a href="#preguntas">Quiz</a>
+      </nav>
+      <div class="nav-actions"><button type="button" class="btn btn-small btn-ghost edit-btn" id="open-editor">⚙ Personalizar</button><button type="button" class="btn btn-primary btn-small" id="start-presentation">▶ Presentar</button></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero slide" id="inicio" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <div class="hero-topline"><span class="live-dot"></span> Expediente espacial / Nº 001</div>
+          <h1 id="hero-title"><span>CHELIÁ-</span><span>BINSK.</span></h1>
+          <p class="hero-subtitle">El día que <span class="accent">el cielo explotó.</span></p>
+          <p class="hero-copy">El 15 de febrero de 2013, una roca espacial cruzó el cielo de Rusia. En segundos, un destello extraordinario se convirtió en uno de los eventos astronómicos más estudiados de nuestra época.</p>
+          <div class="hero-buttons"><a href="#historia" class="btn btn-primary">Explorar la historia <span class="arrow">↗</span></a><button type="button" class="btn" id="hero-present">▶ Modo presentación</button></div>
+          <div class="hero-meta"><span>15 feb 2013</span><span>Rusia</span><span>Presentación escolar</span></div>
+        </div>
+        <div class="hero-visual" aria-label="Fotografía real del rastro del meteorito de Cheliábinsk">
+          <div class="orbital-ring"></div><div class="orbital-ring"></div>
+          <div class="hero-photo-wrap">
+            <img src="assets/rastro-ilustracion.svg" data-remote="https://upload.wikimedia.org/wikipedia/commons/d/d4/2013_Chelyabinsk_meteor_trace.jpg" alt="Representación del rastro del meteoro de Cheliábinsk sobre un paisaje nevado" fetchpriority="high">
+            <span class="photo-caption">Representación · 15.02.2013</span>
+          </div>
+          <div class="floating-chip chip-a"><strong>~18 m</strong><span>De diámetro</span></div>
+          <div class="floating-chip chip-b"><strong>18,6 km/s</strong><span>Velocidad de entrada</span></div>
+        </div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true">Deslizá para descubrir</div>
+    </section>
+
+    <section class="section section-alt slide" id="historia" aria-labelledby="historia-title">
+      <div class="container content-grid">
+        <div class="reveal">
+          <span class="eyebrow">01 / El acontecimiento</span>
+          <h2 id="historia-title" class="section-title display">Una mañana <span class="accent">imposible de olvidar.</span></h2>
+          <p class="lead">Eran alrededor de las 9:20 de la mañana. Sin aviso, una luz intensa apareció sobre los montes Urales y atravesó el cielo de Cheliábinsk, Rusia.</p>
+          <p class="small-copy">No era un avión ni un cometa: un pequeño asteroide había ingresado en la atmósfera terrestre a una velocidad extraordinaria. El objeto se fragmentó y liberó gran parte de su energía en el aire, antes de tocar el suelo.</p>
+          <div class="fact-inline">
+            <div><span class="number-marker">01</span><div><strong>Un destello más brillante que el Sol</strong><p>La bola de fuego sorprendió a miles de personas y quedó registrada en cámaras de autos.</p></div></div>
+            <div><span class="number-marker">02</span><div><strong>No fue un gran cráter</strong><p>La explosión principal ocurrió en la atmósfera. Solo cayeron fragmentos de la roca.</p></div></div>
+          </div>
+        </div>
+        <div class="photo-panel reveal">
+          <img loading="lazy" src="assets/nube-ilustracion.svg" data-remote="https://upload.wikimedia.org/wikipedia/commons/f/f9/Chelyabinsk_meteor_trace_15-02-2013.jpg" alt="Ilustración de la nube de polvo del meteoro de Cheliábinsk">
+          <p>Ilustración conceptual de la estela de polvo que permaneció después de la explosión.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section slide" id="cifras" aria-labelledby="cifras-title">
+      <div class="container">
+        <div class="reveal"><span class="eyebrow">02 / Datos sorprendentes</span><h2 id="cifras-title" class="section-title display">Pequeño en el espacio.<br><span class="accent">Gigante en energía.</span></h2><p class="lead">A pesar de medir apenas unas decenas de metros, la roca espacial desató una explosión de enorme potencia.</p></div>
+        <div class="stats-grid">
+          <article class="stat reveal"><span class="stat-icon">◉</span><div class="stat-number">~18 <span style="font-size:.45em;color:var(--orange)">m</span></div><div class="stat-label">Diámetro del objeto</div><div class="stat-note">Estimado en unos 17 a 20 metros.</div></article>
+          <article class="stat reveal"><span class="stat-icon">↗</span><div class="stat-number">18,6 <span style="font-size:.36em;color:var(--orange)">km/s</span></div><div class="stat-label">Velocidad de entrada</div><div class="stat-note">Casi 67.000 kilómetros por hora.</div></article>
+          <article class="stat reveal"><span class="stat-icon">✳</span><div class="stat-number">~500 <span style="font-size:.36em;color:var(--orange)">kt</span></div><div class="stat-label">Energía liberada</div><div class="stat-note">Equivalente aproximado en kilotones de TNT.</div></article>
+          <article class="stat reveal"><span class="stat-icon">⌁</span><div class="stat-number">~23 <span style="font-size:.42em;color:var(--orange)">km</span></div><div class="stat-label">Altitud de la explosión</div><div class="stat-note">Estimación NASA de la altura principal.</div></article>
+        </div>
+        <p class="note-bar"><span>✦</span><span>Las cifras son <strong>aproximaciones científicas</strong>. Distintos estudios publicaron valores ligeramente diferentes según el método de medición.</span></p>
+      </div>
+    </section>
+
+    <section class="section section-alt slide" id="cronologia" aria-labelledby="cronologia-title">
+      <div class="container">
+        <div class="reveal"><span class="eyebrow">03 / Cronología</span><h2 id="cronologia-title" class="section-title display">¿Qué pasó <span class="accent">exactamente?</span></h2></div>
+        <div class="timeline-grid">
+          <div class="timeline reveal">
+            <article class="timeline-item"><div class="timeline-time">15 febrero 2013 · ~09:20</div><h3>El objeto entra a la atmósfera</h3><p>Una roca procedente del espacio se desplaza sobre la región de Cheliábinsk y se convierte en una enorme bola de fuego.</p></article>
+            <article class="timeline-item"><div class="timeline-time">Segundos después</div><h3>Explosión en el aire</h3><p>El meteoroide se fragmenta a gran altitud y produce un destello extremadamente brillante.</p></article>
+            <article class="timeline-item"><div class="timeline-time">Unos minutos después</div><h3>Llega la onda expansiva</h3><p>La onda de choque alcanza la ciudad. Numerosos vidrios se rompen y muchas personas sufren lesiones.</p></article>
+            <article class="timeline-item"><div class="timeline-time">Octubre de 2013</div><h3>Una pieza bajo el agua</h3><p>Se recupera del lago Chebarkul un gran fragmento del meteorito, de más de 570 kilogramos.</p></article>
+          </div>
+          <div class="simulation reveal" role="img" aria-label="Ilustración conceptual de un meteorito entrando en la atmósfera y liberando una onda de choque. No representa distancias reales.">
+            <div class="sim-label">Visualización conceptual / No a escala</div>
+            <div class="path-line"></div><div class="wave"></div><div class="wave two"></div><div class="wave three"></div><div class="meteor-sim"></div><div class="altitude-line"><span>~23 km</span></div><div class="planet"></div>
+            <div class="sim-legend"><span>ATMÓSFERA TERRESTRE</span><span>✦ ONDA DE CHOQUE</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section slide" id="consecuencias" aria-labelledby="impacto-title">
+      <div class="container">
+        <div class="reveal"><span class="eyebrow">04 / Consecuencias</span><h2 id="impacto-title" class="section-title display">Una explosión en el cielo.<br><span class="accent">Un impacto en la Tierra.</span></h2><p class="lead">El verdadero peligro no fueron las piedras que cayeron: fue la <strong style="color:white">onda de choque</strong> generada por la explosión atmosférica.</p></div>
+        <div class="impact-grid">
+          <article class="impact-highlight reveal"><div><div class="eyebrow">Impacto humano</div><div class="big">1.500</div><h3>personas heridas, aproximadamente</h3></div><p>Gran parte de las lesiones se relacionaron con vidrios rotos al llegar la onda expansiva a edificios y viviendas.</p></article>
+          <div class="impact-side"><article class="impact-card reveal"><span class="symbol">▧</span><strong>Ventanas destrozadas</strong><p>La onda de presión hizo estallar cristales y ocasionó daños en miles de edificios.</p></article><article class="impact-card reveal"><span class="symbol">◉</span><strong>Fragmentos recuperados</strong><p>Varias piezas llegaron al suelo, incluida una muy grande hallada en el lago Chebarkul.</p></article></div>
+        </div>
+        <p class="note-bar"><span>!</span><span><strong>¿Por qué se rompieron ventanas?</strong> Porque la luz llegó primero y el sonido y la onda de choque llegaron después. Por eso es peligroso acercarse a los vidrios tras ver un destello intenso.</span></p>
+      </div>
+    </section>
+
+    <section class="section section-alt slide" id="ciencia" aria-labelledby="ciencia-title">
+      <div class="container">
+        <div class="science-layout">
+          <div class="reveal"><span class="eyebrow">05 / La ciencia detrás</span><h2 id="ciencia-title" class="section-title display">¿Asteroide, meteoro <span class="accent">o meteorito?</span></h2><p class="lead">Son palabras parecidas, pero no significan exactamente lo mismo.</p><p class="small-copy">El objeto que llegó a Cheliábinsk era un pequeño asteroide o meteoroide antes de ingresar a la atmósfera. La luz que vimos fue un meteoro, y sus fragmentos en el suelo son meteoritos.</p><p class="insight"><strong>¿Qué nos enseñó?</strong> Que incluso los objetos espaciales relativamente pequeños pueden causar daños, y que estudiar estos sucesos ayuda a mejorar la defensa planetaria.</p></div>
+          <div class="distinction" style="grid-template-columns:1fr;gap:10px;margin-top:0">
+            <article class="term-card active reveal"><span class="term-symbol">◆</span><h3>Meteoroide</h3><p>Fragmento de roca o metal que viaja por el espacio.</p></article>
+            <article class="term-card reveal"><span class="term-symbol">☄</span><h3>Meteoro</h3><p>Fenómeno luminoso producido al atravesar la atmósfera: la “estrella fugaz”.</p></article>
+            <article class="term-card reveal"><span class="term-symbol">◈</span><h3>Meteorito</h3><p>Fragmento que sobrevive al paso por la atmósfera y alcanza el suelo.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section slide" id="preguntas" aria-labelledby="quiz-title">
+      <div class="container">
+        <div class="quiz-head reveal"><div><span class="eyebrow">06 / Poné a prueba lo aprendido</span><h2 id="quiz-title" class="section-title display">¿Cuánto <span class="accent">aprendiste?</span></h2><p class="lead" style="margin-bottom:0">Tres preguntas rápidas para cerrar la presentación.</p></div><span class="score-pill" id="score-pill" role="status">0 / 3 respuestas correctas</span></div>
+        <div class="quiz-grid" id="quiz-grid">
+          <article class="quiz-card reveal" data-question="0" data-correct="1"><div class="quiz-counter">PREGUNTA 01 / 03</div><h3>¿En qué año ocurrió el evento de Cheliábinsk?</h3><div class="answers"><button class="answer" type="button">2003</button><button class="answer" type="button">2013</button><button class="answer" type="button">2023</button></div><p class="feedback" aria-live="polite">Elegí una respuesta.</p></article>
+          <article class="quiz-card reveal" data-question="1" data-correct="2"><div class="quiz-counter">PREGUNTA 02 / 03</div><h3>¿Dónde ocurrió la explosión principal?</h3><div class="answers"><button class="answer" type="button">En el fondo del mar</button><button class="answer" type="button">En el suelo de la ciudad</button><button class="answer" type="button">En la atmósfera</button></div><p class="feedback" aria-live="polite">Elegí una respuesta.</p></article>
+          <article class="quiz-card reveal" data-question="2" data-correct="0"><div class="quiz-counter">PREGUNTA 03 / 03</div><h3>¿Qué causó la mayoría de las lesiones?</h3><div class="answers"><button class="answer" type="button">Vidrios rotos por la onda de choque</button><button class="answer" type="button">Lava volcánica</button><button class="answer" type="button">La caída de un satélite</button></div><p class="feedback" aria-live="polite">Elegí una respuesta.</p></article>
+        </div>
+        <div class="quiz-actions"><div class="quiz-result" id="quiz-result" role="status">Respondé las 3 preguntas para conocer tu puntaje.</div><button type="button" class="btn btn-ghost" id="reset-quiz">↺ Volver a intentar</button></div>
+      </div>
+    </section>
+
+    <section class="section section-alt slide" id="fuentes" aria-labelledby="fuentes-title">
+      <div class="container">
+        <div class="reveal"><span class="eyebrow">07 / Para seguir investigando</span><h2 id="fuentes-title" class="section-title display">La ciencia necesita <span class="accent">fuentes.</span></h2><p class="lead">Esta presentación se elaboró con información de organismos científicos y espaciales. Podés abrir cada enlace para conocer más.</p></div>
+        <div class="sources-grid">
+          <a class="source-link reveal" href="https://www.jpl.nasa.gov/news/additional-details-on-the-large-feb-15-fireball-over-russia/" target="_blank" rel="noopener noreferrer"><div><span class="source-org">NASA / JPL</span><strong>Detalles de la bola de fuego sobre Rusia</strong><p>Dimensiones, entrada atmosférica y fragmentación.</p></div><span class="outbound">↗</span></a>
+          <a class="source-link reveal" href="https://svs.gsfc.nasa.gov/4094/" target="_blank" rel="noopener noreferrer"><div><span class="source-org">NASA / SVS</span><strong>Estudio del rastro del bólido</strong><p>Velocidad, altitud y dispersión del polvo.</p></div><span class="outbound">↗</span></a>
+          <a class="source-link reveal" href="https://www.esa.int/Space_Safety/Russia_asteroid_impact_ESA_update_and_assessment" target="_blank" rel="noopener noreferrer"><div><span class="source-org">ESA</span><strong>Evaluación del evento de Cheliábinsk</strong><p>Información y análisis de la Agencia Espacial Europea.</p></div><span class="outbound">↗</span></a>
+          <a class="source-link reveal" href="https://www.nasa.gov/wp-content/uploads/2015/12/neo-impact-threat-emergency-protocols-jan2021.pdf" target="_blank" rel="noopener noreferrer"><div><span class="source-org">NASA</span><strong>Informe sobre amenazas de impactos</strong><p>Lesiones por la onda expansiva y medidas de protección.</p></div><span class="outbound">↗</span></a>
+        </div>
+        <div class="license">Fotografías históricas obtenidas de Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:2013_Chelyabinsk_meteor_trace.jpg" target="_blank" rel="noopener noreferrer">Alex Alishevskikh</a> (CC BY-SA 2.0) y <a href="https://commons.wikimedia.org/wiki/File:Chelyabinsk_meteor_trace_15-02-2013.jpg" target="_blank" rel="noopener noreferrer">Nikita Plekhanov</a> (CC BY-SA 3.0). Imágenes presentadas con recorte de encuadre CSS, sin alterar los originales. Licencias: <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 2.0</a> y <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>. La ilustración de la Tierra es conceptual y no está a escala.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container footer-inner"><div><strong>✦ ARCHIVO CÓSMICO</strong> &nbsp; / &nbsp; Proyecto escolar sobre el meteorito de Cheliábinsk</div><div class="footer-last"><span id="presenter-label">Presentado por: Tu nombre</span><button class="btn btn-small btn-ghost" type="button" id="footer-edit">Editar datos ✎</button></div></div></footer>
+  <div class="presentation-controls" aria-label="Controles de presentación"><button type="button" id="slide-prev" class="control-btn" aria-label="Diapositiva anterior">‹</button><span id="slide-indicator" class="slide-index">01 / 08</span><button type="button" id="slide-next" class="control-btn" aria-label="Siguiente diapositiva">›</button><button type="button" class="control-exit" id="exit-presentation">Salir ✕</button></div>
+  <button type="button" class="top-btn" id="back-top" aria-label="Volver al inicio">↑</button>
+
+  <dialog id="editor-dialog" aria-labelledby="editor-title"><form method="dialog" id="editor-form" class="dialog-content"><h2 id="editor-title">Personalizá tu presentación ✦</h2><p>Agregá tus datos del colegio. Se guardan en este navegador.</p><label>Tu nombre<input id="input-name" name="name" maxlength="70" placeholder="Ej.: Juan Pérez" autocomplete="name"></label><label>Curso o división<input id="input-course" name="course" maxlength="55" placeholder="Ej.: 3° B"></label><label>Materia<input id="input-subject" name="subject" maxlength="60" placeholder="Ej.: Ciencias Naturales"></label><div class="dialog-actions"><button type="button" id="close-editor" class="btn btn-ghost">Cancelar</button><button type="submit" class="btn btn-primary" value="guardar">Guardar</button></div></form></dialog>
+
+  <script>
+    (function(){
+      'use strict';
+      document.body.classList.add('has-js');
+      const $=(s,root=document)=>root.querySelector(s), $$=(s,root=document)=>Array.from(root.querySelectorAll(s));
+      const slides=$$('.slide'), progress=$('#progress-bar');
+      // La versión local siempre muestra ilustraciones; se sustituyen por fotos históricas si hay Internet.
+      $$('img[data-remote]').forEach(img=>{
+        const historical=new Image();
+        historical.onload=()=>{
+          img.src=historical.src;
+          if(img.closest('.hero-photo-wrap')){
+            img.alt='Fotografía real de la estela del meteoro de Cheliábinsk sobre la nieve';
+            const caption=img.parentElement.querySelector('.photo-caption');
+            if(caption)caption.textContent='Foto auténtica · 15.02.2013';
+          }else if(img.closest('.photo-panel')){
+            img.alt='Fotografía real de la nube de polvo del meteoro de Cheliábinsk';
+            const caption=img.parentElement.querySelector('p');
+            if(caption)caption.textContent='Fotografía real de la estela de polvo. Foto: Nikita Plekhanov / Wikimedia Commons';
+          }
+        };
+        historical.src=img.dataset.remote;
+      });
+      let presenting=false,current=0;
+      const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const observer=('IntersectionObserver' in window)?new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:.06}):null;
+      $$('.reveal').forEach(el=>{if(observer)observer.observe(el);else el.classList.add('visible')});
+      function updateScroll(){if(presenting)return;const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max>0?(scrollY/max)*100:0)+'%';$('#back-top').classList.toggle('visible',scrollY>650)}
+      window.addEventListener('scroll',updateScroll,{passive:true});window.addEventListener('resize',updateScroll);updateScroll();
+      $('#back-top').addEventListener('click',()=>window.scrollTo({top:0,behavior:reducedMotion?'auto':'smooth'}));
+      function changeSlide(index){if(!presenting)return;current=Math.max(0,Math.min(slides.length-1,index));slides.forEach((slide,i)=>slide.classList.toggle('is-current',i===current));$('#slide-indicator').textContent=String(current+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');$('#slide-prev').disabled=current===0;$('#slide-next').disabled=current===slides.length-1;progress.style.width=((current+1)/slides.length*100)+'%';slides[current].scrollTop=0;window.scrollTo(0,0)}
+      function startPresentation(){presenting=true;document.body.classList.add('presenting');changeSlide(0);const root=document.documentElement;if(root.requestFullscreen){root.requestFullscreen().catch(()=>{})}}
+      function endPresentation(){presenting=false;document.body.classList.remove('presenting');slides.forEach(s=>s.classList.remove('is-current'));if(document.fullscreenElement){document.exitFullscreen().catch(()=>{})}updateScroll();}
+      $('#start-presentation').addEventListener('click',startPresentation);$('#hero-present').addEventListener('click',startPresentation);$('#exit-presentation').addEventListener('click',endPresentation);
+      $('#slide-prev').addEventListener('click',()=>changeSlide(current-1));$('#slide-next').addEventListener('click',()=>changeSlide(current+1));
+      document.addEventListener('keydown',e=>{if(!presenting)return;if(e.target.closest('input,textarea,dialog'))return;if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();changeSlide(current+1)}if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();changeSlide(current-1)}if(e.key==='Escape'){endPresentation()}});
+      document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement&&presenting){/* El usuario puede continuar en modo presentación sin pantalla completa. */}});
+      const quizCards=$$('.quiz-card');let answered={};
+      function updateQuiz(){let ok=0;Object.values(answered).forEach(v=>{if(v)ok++});$('#score-pill').textContent=ok+' / 3 respuestas correctas';let count=Object.keys(answered).length;$('#quiz-result').textContent=count===3?(ok===3?'¡Excelente! Respondiste todo correctamente. 🎉':`Completaste el quiz: ${ok} de 3 correctas. ¡Buen trabajo!`):`Respondidas: ${count} de 3. ¡Seguimos!`}
+      quizCards.forEach((card,index)=>{const options=$$('.answer',card);options.forEach((btn,i)=>btn.addEventListener('click',()=>{if(index in answered)return;const correct=Number(card.dataset.correct),right=i===correct;answered[index]=right;options.forEach((option,j)=>{option.disabled=true;if(j===correct)option.classList.add('correct');if(j===i&&!right)option.classList.add('wrong')});const msg=$('.feedback',card);msg.textContent=right?'✓ ¡Correcto!':('✗ La respuesta correcta era: '+options[correct].textContent+'.');msg.className='feedback '+(right?'success':'fail');updateQuiz()}))});
+      $('#reset-quiz').addEventListener('click',()=>{answered={};quizCards.forEach(card=>{$$('.answer',card).forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong')});const msg=$('.feedback',card);msg.className='feedback';msg.textContent='Elegí una respuesta.'});$('#quiz-result').textContent='Respondé las 3 preguntas para conocer tu puntaje.';$('#score-pill').textContent='0 / 3 respuestas correctas'});
+      const dlg=$('#editor-dialog'),form=$('#editor-form');
+      function openEditor(){let data={};try{data=JSON.parse(localStorage.getItem('cheliabinsk-presentacion')||'{}')}catch{}$('#input-name').value=data.name||'';$('#input-course').value=data.course||'';$('#input-subject').value=data.subject||'';dlg.showModal()}
+      function applyProfile(data){const parts=[data.name||'Tu nombre',data.course,data.subject].filter(Boolean);$('#presenter-label').textContent='Presentado por: '+parts.join(' · ')}
+      $('#open-editor').addEventListener('click',openEditor);$('#footer-edit').addEventListener('click',openEditor);$('#close-editor').addEventListener('click',()=>dlg.close());
+      form.addEventListener('submit',e=>{e.preventDefault();const data={name:$('#input-name').value.trim(),course:$('#input-course').value.trim(),subject:$('#input-subject').value.trim()};try{localStorage.setItem('cheliabinsk-presentacion',JSON.stringify(data))}catch{}applyProfile(data);dlg.close()});
+      try{applyProfile(JSON.parse(localStorage.getItem('cheliabinsk-presentacion')||'{}'))}catch{applyProfile({})}
+      $$('.nav-links a').forEach(link=>link.addEventListener('click',()=>{$$('.nav-links a').forEach(x=>x.classList.remove('active'));link.classList.add('active')}));
+    })();
+  </script>
+</body>
+</html>
