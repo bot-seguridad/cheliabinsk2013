@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 900" role="img" aria-label="Ilustración de la nube de fragmentación del meteoro">
+ <defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#112940"/><stop offset=".55" stop-color="#327394"/><stop offset="1" stop-color="#8aadb6"/></linearGradient><linearGradient id="cloud" x2="0" y2="1"><stop stop-color="#fff4d6"/><stop offset=".6" stop-color="#e2c5a7"/><stop offset="1" stop-color="#9d9eab"/></linearGradient><filter id="f"><feGaussianBlur stdDeviation="20"/></filter><filter id="blur"><feGaussianBlur stdDeviation="6"/></filter></defs>
+ <rect width="1000" height="900" fill="url(#sky)"/>
+ <path d="M-160 196 C33 252 165 280 270 326 S545 377 678 402 904 445 1136 522" fill="none" stroke="#ffe0b7" stroke-width="102" opacity=".25" filter="url(#f)"/>
+ <path d="M-170 192 C20 234 153 273 269 320 S546 371 681 393 911 447 1137 518" fill="none" stroke="#d9d7ce" stroke-width="65" opacity=".76" filter="url(#blur)"/>
+ <path d="M-140 188 C38 231 150 276 266 316 S537 365 682 389 914 444 1144 512" fill="none" stroke="url(#cloud)" stroke-width="36" stroke-linecap="round" stroke-dasharray="90 11 230 12 180 14 250 10"/>
+ <g fill="#ead4b9" opacity=".88" filter="url(#blur)"><ellipse cx="282" cy="328" rx="98" ry="63"/><ellipse cx="350" cy="340" rx="58" ry="51"/><ellipse cx="519" cy="369" rx="76" ry="44"/><ellipse cx="702" cy="394" rx="83" ry="47"/></g>
+ <path d="M0 788 72 790 95 755 132 787 178 767 225 783 271 756 326 786 358 774 414 788 496 764 561 778 644 772 705 789 765 756 817 777 871 756 912 780 1000 767V900H0Z" fill="#101e31"/>
+ <path d="M0 831h180v-75h60v75h172v-110h71v110h110v-85h53v85h160v-122h60v122h134v69H0Z" fill="#17273a"/>
+ </svg>

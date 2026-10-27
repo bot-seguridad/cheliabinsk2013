@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 760" role="img" aria-label="Ilustración del rastro del meteoro sobre el cielo invernal">
+<defs>
+ <linearGradient id="sky" x2="0" y2="1"><stop offset="0" stop-color="#081a30"/><stop offset=".56" stop-color="#34435a"/><stop offset=".8" stop-color="#976b62"/><stop offset="1" stop-color="#162233"/></linearGradient>
+ <linearGradient id="fire" x2="0" y2="1"><stop offset="0" stop-color="#f5e1bd"/><stop offset=".4" stop-color="#f0b479"/><stop offset="1" stop-color="#e47d54"/></linearGradient>
+ <linearGradient id="snow" x2="0" y2="1"><stop stop-color="#c5cfdb"/><stop offset="1" stop-color="#6d8399"/></linearGradient>
+ <filter id="blur"><feGaussianBlur stdDeviation="14"/></filter>
+ <filter id="soft"><feGaussianBlur stdDeviation="4"/></filter>
+</defs>
+<rect width="1280" height="760" fill="url(#sky)"/>
+<g fill="#cad9f1" opacity=".6"><circle cx="77" cy="90" r="1.4"/><circle cx="289" cy="44" r="1"/><circle cx="660" cy="106" r="1.2"/><circle cx="955" cy="85" r="1"/><circle cx="1110" cy="185" r="1.5"/><circle cx="737" cy="53" r="1"/></g>
+<path d="M-60 166 C140 212 255 243 430 254 C615 259 727 314 860 323 C966 337 1083 380 1350 428" fill="none" stroke="#ffce8e" stroke-width="40" opacity=".24" filter="url(#blur)"/>
+<path d="M-60 165 C140 199 253 241 430 247 C600 263 727 298 860 324 C1013 353 1120 391 1340 426" fill="none" stroke="#dbb5a2" stroke-width="24" opacity=".67" filter="url(#soft)"/>
+<path d="M-60 163 C140 197 253 231 430 242 C605 267 744 301 861 324 C1012 350 1130 390 1338 422" fill="none" stroke="url(#fire)" stroke-width="11" stroke-linecap="round" stroke-dasharray="180 9 100 13 240 11 500 3" opacity=".93"/>
+<g opacity=".96"><ellipse cx="730" cy="303" rx="43" ry="27" fill="#f5cf9c" filter="url(#blur)"/><ellipse cx="730" cy="303" rx="22" ry="16" fill="#f3dfc3" filter="url(#soft)"/><ellipse cx="1030" cy="363" rx="28" ry="17" fill="#ffd6a4" opacity=".7" filter="url(#soft)"/></g>
+<path d="M0 594 80 585 124 592 180 580 225 590 272 572 324 590 350 578 424 585 488 570 540 585 621 571 706 587 774 570 841 582 909 576 987 586 1056 575 1137 584 1210 578 1280 586V760H0Z" fill="#0b1725"/>
+<g fill="#152637"><path d="M0 680h146v-77h65v28h49v-59h83v108h120v-44h95v44h117v-76h70v76h89v-27h78v27h170v80H0Z"/><path d="M0 619h102l50-40 56 40h141l44-34 50 34h122l38-26 40 26h117l62-49 63 49h130l52-31 55 31h138v21H0Z"/></g>
+<g stroke="#0a1521" stroke-width="7" stroke-linecap="round" opacity=".93"><path d="M137 760V507M137 586 81 545M137 580 178 526M137 615 98 598M137 547 121 509M1203 760V507M1203 576 1147 523M1203 565 1246 520M1203 625 1160 601M1052 750V552M1052 605 1014 563M1052 599 1088 566"/></g>
+<path d="M0 738c150-24 217-5 325-18 116-10 205 3 307-12 119-11 215 8 311-2 126-20 248-7 337-5v59H0Z" fill="url(#snow)" opacity=".55"/>
+</svg>
